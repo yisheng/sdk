@@ -13,7 +13,7 @@
 #####
 # $1 = Name of output archive
 #####
-
+echo "+++ Begin 12"
 set -e
 source ./shared.functions.sh
 
@@ -25,6 +25,9 @@ WORK_DIR=$(abspath "$WORK_DIR")
 INDY_SDK=$WORK_DIR/vcx-indy-sdk
 VCX_SDK=$START_DIR/../../../../..
 VCX_SDK=$(abspath "$VCX_SDK")
+
+INDY_SDK=/Users/yisheng/Projects/indy-sdk
+VCX_SDK=/Users/yisheng/Projects/indy-sdk
 
 cd $VCX_SDK/vcx/wrappers/ios/vcx/lib
 
@@ -48,7 +51,7 @@ if [ ! -z "$3" ]; then
     DEBUG_SYMBOLS=$3
 fi
 
-IOS_ARCHS="arm64,armv7,armv7s,i386,x86_64"
+IOS_ARCHS="arm64,armv7,armv7s,x86_64"
 if [ ! -z "$4" ]; then
     IOS_ARCHS=$4
 fi

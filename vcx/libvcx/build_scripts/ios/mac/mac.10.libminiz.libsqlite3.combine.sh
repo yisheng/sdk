@@ -1,6 +1,8 @@
 #!/bin/sh
 
 #For Evernym Mac Jenkins machines, rm the cache(~/.build_libvcx) and store combine-libs dir at /Users/jenkins
+echo "+++ Begin 10"
+
 source ./shared.functions.sh
 
 START_DIR=$PWD
@@ -12,6 +14,9 @@ INDY_SDK=$WORK_DIR/vcx-indy-sdk
 VCX_SDK=$START_DIR/../../../../..
 VCX_SDK=$(abspath "$VCX_SDK")
 
+INDY_SDK=/Users/yisheng/Projects/indy-sdk
+VCX_SDK=/Users/yisheng/Projects/indy-sdk
+
 if [ -d $WORK_DIR/combine-libs ]; then
     rm -rf $WORK_DIR/combine-libs
 fi
@@ -22,6 +27,7 @@ libcnt=0
 liblist=""
 for i in `find $INDY_SDK/libindy -name libsqlite3.a|grep -i release`
 do
+    echo "+++ libindy - ${i}"
     cp $i $WORK_DIR/combine-libs/libsqlite3/$libcnt.a
     liblist="$WORK_DIR/combine-libs/libsqlite3/$libcnt.a $liblist"
     libcnt=$((libcnt + 1))
@@ -34,6 +40,7 @@ libcnt=0
 liblist=""
 for i in `find $VCX_SDK/vcx/libvcx -name libminiz.a|grep -i release`
 do
+    echo "+++ libvcx - ${i}"
     cp $i $WORK_DIR/combine-libs/libminiz/$libcnt.a
     liblist="$WORK_DIR/combine-libs/libminiz/$libcnt.a $liblist"
     libcnt=$((libcnt + 1))

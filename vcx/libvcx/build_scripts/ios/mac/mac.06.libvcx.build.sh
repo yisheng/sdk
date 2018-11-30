@@ -1,5 +1,5 @@
 #!/bin/sh
-
+echo "+++ Begin 06"
 set -e
 source ./shared.functions.sh
 
@@ -11,6 +11,9 @@ WORK_DIR=$(abspath "$WORK_DIR")
 INDY_SDK=$WORK_DIR/vcx-indy-sdk
 VCX_SDK=$START_DIR/../../../../..
 VCX_SDK=$(abspath "$VCX_SDK")
+
+INDY_SDK=/Users/yisheng/Projects/indy-sdk
+VCX_SDK=/Users/yisheng/Projects/indy-sdk
 
 source ./mac.05.libvcx.env.sh
 cd ../../..
@@ -24,7 +27,7 @@ if [ "$DEBUG_SYMBOLS" = "nodebug" ]; then
     sed -i .bak 's/debug = true/debug = false/' Cargo.toml
 fi
 
-IOS_TARGETS="aarch64-apple-ios,armv7-apple-ios,armv7s-apple-ios,i386-apple-ios,x86_64-apple-ios"
+IOS_TARGETS="aarch64-apple-ios,armv7-apple-ios,armv7s-apple-ios,x86_64-apple-ios"
 if [ ! -z "$2" ]; then
     IOS_TARGETS=$2
 fi
@@ -103,7 +106,10 @@ do
 
 done
 mkdir -p ./target/universal/release
+# TODO: VCX_SDK
 lipo -create $to_combine -o ./target/universal/release/libvcx.a
+
+cp -v ./target/universal/release/libvcx.a $VCX_SDK/vcx/libvcx/target/universal/release/libvcx.a
 
 # echo "Copying iOS target folder into directory: $(abspath "${BUILD_CACHE}")"
 # cp -rfp ./target ${BUILD_CACHE}

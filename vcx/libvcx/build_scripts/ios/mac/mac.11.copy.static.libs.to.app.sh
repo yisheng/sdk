@@ -1,5 +1,5 @@
 #!/bin/sh
-
+echo "+++ Begin 11"
 set -e
 source ./shared.functions.sh
 
@@ -13,6 +13,9 @@ VCX_SDK=$START_DIR/../../../../..
 VCX_SDK=$(abspath "$VCX_SDK")
 LIBSSL=$WORK_DIR/OpenSSL-for-iPhone
 LIBZMQ=$WORK_DIR/libzmq-ios
+
+INDY_SDK=/Users/yisheng/Projects/indy-sdk
+VCX_SDK=/Users/yisheng/Projects/indy-sdk
 
 #cp -v $INDY_SDK/libindy/target/universal/release/libindy.a $VCX_SDK/vcx/wrappers/ios/vcx/lib
 # cp -v $INDY_SDK/libnullpay/target/universal/release/libnullpay.a $VCX_SDK/vcx/wrappers/ios/vcx/lib

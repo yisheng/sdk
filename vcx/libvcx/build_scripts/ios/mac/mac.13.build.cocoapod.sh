@@ -1,5 +1,5 @@
 #!/bin/sh
-
+echo "+++ Begin 13"
 set -e
 source ./shared.functions.sh
 
@@ -11,11 +11,14 @@ WORK_DIR=$(abspath "$WORK_DIR")
 VCX_SDK=$START_DIR/../../../../..
 VCX_SDK=$(abspath "$VCX_SDK")
 
+INDY_SDK=/Users/yisheng/Projects/indy-sdk
+VCX_SDK=/Users/yisheng/Projects/indy-sdk
+
 COMBINED_LIB=$1
 
 DATETIME=$(date +"%Y%m%d.%H%M")
 
-IOS_ARCHS="arm64,armv7,armv7s,i386,x86_64"
+IOS_ARCHS="arm64,armv7,armv7s,x86_64"
 if [ ! -z "$2" ]; then
     IOS_ARCHS=$2
 fi

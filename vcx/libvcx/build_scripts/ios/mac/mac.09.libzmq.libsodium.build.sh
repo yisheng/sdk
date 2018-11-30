@@ -8,18 +8,18 @@ WORK_DIR=$START_DIR/../../../../../.macosbuild
 mkdir -p $WORK_DIR
 WORK_DIR=$(abspath "$WORK_DIR")
 
-if [ -d $WORK_DIR/libzmq-ios ]; then
-    rm -rf $WORK_DIR/libzmq-ios
-fi
-git clone https://github.com/evernym/libzmq-ios.git $WORK_DIR/libzmq-ios
+# if [ -d $WORK_DIR/libzmq-ios ]; then
+#     rm -rf $WORK_DIR/libzmq-ios
+# fi
+# git clone https://github.com/evernym/libzmq-ios.git $WORK_DIR/libzmq-ios
 cd $WORK_DIR/libzmq-ios
-git clone https://github.com/evernym/libsodium-ios.git $WORK_DIR/libzmq-ios/libsodium-ios
+# git clone https://github.com/evernym/libsodium-ios.git $WORK_DIR/libzmq-ios/libsodium-ios
 cd $WORK_DIR/libzmq-ios/libsodium-ios
-./libsodium.rb
+# ./libsodium.rb
 cd ..
-./libzmq.rb
+# ./libzmq.rb
 
-IOS_ARCHS="arm64,armv7,armv7s,i386,x86_64"
+IOS_ARCHS="arm64,armv7,armv7s,x86_64"
 if [ ! -z "$1" ]; then
     IOS_ARCHS=$1
 fi
@@ -32,6 +32,7 @@ cd $WORK_DIR/libzmq-ios
 # Extract individual architectures for this library
 for arch in ${archs[*]}
 do
+    echo "09 - ${arch}"
     mkdir -p dist/ios/lib/${arch}
     mkdir -p libsodium-ios/dist/ios/lib/${arch}
     lipo -extract ${arch} dist/ios/lib/libzmq.a -o dist/ios/lib/${arch}/libzmq-fat.a

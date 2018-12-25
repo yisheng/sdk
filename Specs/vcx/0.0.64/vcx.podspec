@@ -23,10 +23,10 @@ from Objective-C. This pod is a very thin Objective-C wrapper that allows react 
 through to the libvcx shared library.
                        DESC
 
-  s.homepage         = 'https://www.evernym.com/'
+  s.homepage         = 'https://www.hubsensors.com/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'evernym-ios-dev' => 'iosdev@evernym.com' }
-  s.source           = { :http => 'https://repo.corp.evernym.com/filely/ios/vcx.libvcxall_20181129.1528_universal.zip' }
+  s.author           = { 'evernym-ios-dev' => 'yangdesheng@hansheng.io' }
+  s.source           = { :http => 'http://hanshen-io.oss-cn-beijing.aliyuncs.com/humsen-assets/did/vcx.libvcxall_20181130.1746_universal.zip' }
 
   s.ios.deployment_target = '8.0'
 
